@@ -212,6 +212,30 @@ class CLI:
             ),
         )
         parser.add_argument(
+            '--entra-tenant-id',
+            type=str,
+            default=None,
+            help=(
+                'Entra Tenant Id for Service Principal Authentication.'
+            ),
+        )
+        parser.add_argument(
+            '--entra-client-id',
+            type=str,
+            default=None,
+            help=(
+                'Entra Client Id for Service Principal Authentication.'
+            ),
+        )
+        parser.add_argument(
+            '--entra-client-secret-env-var',
+            type=str,
+            default=None,
+            help=(
+                'The name of environment variable containing Entra Client Secret for Service Principal Authentication.'
+            ),
+        )
+        parser.add_argument(
             '--aws-requested-syncs',
             type=str,
             default=None,
@@ -798,5 +822,9 @@ def main(argv=None):
     logging.getLogger('botocore').setLevel(logging.WARNING)
     logging.getLogger('googleapiclient').setLevel(logging.WARNING)
     logging.getLogger('neo4j').setLevel(logging.WARNING)
+    logging.getLogger('azure.identity').setLevel(logging.WARNING)
+    logging.getLogger('httpx').setLevel(logging.WARNING)
+    logging.getLogger('azure.core.pipeline.policies.http_logging_policy').setLevel(logging.WARNING)
+
     argv = argv if argv is not None else sys.argv[1:]
     sys.exit(CLI(prog='cartography').main(argv))
