@@ -37,6 +37,7 @@ import cartography.intel.oci
 import cartography.intel.okta
 import cartography.intel.openai
 import cartography.intel.pagerduty
+import cartography.intel.scaleway
 import cartography.intel.semgrep
 import cartography.intel.snipeit
 import cartography.intel.tailscale
@@ -72,6 +73,7 @@ TOP_LEVEL_MODULES = OrderedDict(
         "lastpass": cartography.intel.lastpass.start_lastpass_ingestion,
         "bigfix": cartography.intel.bigfix.start_bigfix_ingestion,
         "duo": cartography.intel.duo.start_duo_ingestion,
+        "scaleway": cartography.intel.scaleway.start_scaleway_ingestion,
         "semgrep": cartography.intel.semgrep.start_semgrep_ingestion,
         "snipeit": cartography.intel.snipeit.start_snipeit_ingestion,
         "tailscale": cartography.intel.tailscale.start_tailscale_ingestion,
